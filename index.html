@@ -3,43 +3,467 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Imanol Gonzalez | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Imanol Gonzalez Toledo | Mechanical Engineering Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121a31;
+      --card: #17213f;
+      --text: #eef2ff;
+      --muted: #b7c0e0;
+      --accent: #6ea8fe;
+      --accent-2: #8ef0d1;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 40px rgba(0,0,0,0.28);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0a0f1e 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10, 15, 30, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 0 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(110,168,254,0.12), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b1020;
+    }
+
+    .btn-primary:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      text-decoration: none;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    section {
+      padding: 28px 0 46px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 12px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin: 0 0 24px;
+      max-width: 760px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 16px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .project-links a {
+      font-weight: 700;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 16px;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .about-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .resume-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Imanol Gonzalez</h1>
-    <p>Recent Mechanical Engineering graduate from UTA with experience in CAD, prototyping, and design projects.</p>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Imanol Gonzalez</div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Mechanical Engineering Portfolio</div>
+        <h1>Recent Mechanical Engineering graduate focused on design, prototyping, and hands-on problem solving.</h1>
+        <p>
+          I am a recent UTA Mechanical Engineering graduate with project experience in CAD, manufacturing, prototyping,
+          and electromechanical systems. My work includes a senior design autogyro, a heavy-duty tow bar assembly,
+          and a servo-actuated balancing platform.
+        </p>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Core Strengths</h3>
+        <ul>
+          <li>Mechanical design in SolidWorks</li>
+          <li>Manufacturing and assembly planning</li>
+          <li>Prototyping and 3D printing workflows</li>
+          <li>Technical documentation and presentations</li>
+          <li>Hands-on troubleshooting and integration</li>
+        </ul>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Projects</h2>
+  <main>
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">
+          These projects highlight my experience in mechanical design, manufacturability, technical communication,
+          and building systems that work in practice.
+        </p>
 
-    <div>
-      <h3>Autogyro Senior Design Project</h3>
-      <p>Developed detailed SolidWorks CAD models of key components and helped reduce total component weight by 32%.</p>
-    </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="project-image">Add autogyro CAD renders, prototype photos, or airflow screenshots here</div>
+            <h3>Senior Design Capstone: Autogyro</h3>
+            <p>
+              Developed detailed SolidWorks CAD models for key autogyro components, including the canopy, fuselage,
+              and airfoil geometries. Helped reduce total component weight by 32% through optimized print settings
+              and material selection.
+            </p>
+            <div class="tag-row">
+              <span class="tag">SolidWorks</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Design Optimization</span>
+              <span class="tag">Technical Presentations</span>
+            </div>
+            <div class="project-links">
+              <a href="#">Project Details</a>
+              <a href="#resume">Related Resume Experience</a>
+            </div>
+          </article>
 
-    <div>
-      <h3>Heavy-Duty Tow Bar</h3>
-      <p>Designed a tow bar assembly for military vehicle applications with focus on structural integrity, manufacturing, and cost.</p>
-    </div>
+          <article class="card">
+            <div class="project-image">Add tow bar CAD images, drawings, analysis screenshots, or manufacturing plan visuals here</div>
+            <h3>Heavy-Duty Tow Bar Assembly</h3>
+            <p>
+              Designed a complete heavy-duty tow bar assembly for military vehicle applications with focus on structural
+              integrity, load requirements, assembly feasibility, manufacturing planning, and cost analysis.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Mechanical Design</span>
+              <span class="tag">Manufacturing</span>
+              <span class="tag">Assembly Planning</span>
+              <span class="tag">Cost Analysis</span>
+            </div>
+            <div class="project-links">
+              <a href="#">Project Details</a>
+              <a href="#resume">Related Resume Experience</a>
+            </div>
+          </article>
 
-    <div>
-      <h3>Ball-Balancing Platform</h3>
-      <p>Worked on a servo-actuated balancing platform using SolidWorks, Raspberry Pi Pico, and real-time control integration.</p>
-    </div>
-  </section>
+          <article class="card">
+            <div class="project-image">Add platform CAD, servo setup photos, wiring, or testing images here</div>
+            <h3>Ball-Balancing Platform</h3>
+            <p>
+              Helped design a servo-actuated balancing platform using SolidWorks, two servos, and a Raspberry Pi Pico.
+              Contributed to real-time control code and troubleshooting of wiring and hardware integration issues.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Mechatronics</span>
+              <span class="tag">SolidWorks</span>
+              <span class="tag">Raspberry Pi Pico</span>
+              <span class="tag">Troubleshooting</span>
+            </div>
+            <div class="project-links">
+              <a href="#">Project Details</a>
+              <a href="#resume">Related Resume Experience</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Resume</h2>
-    <p>Add your PDF resume here later.</p>
-  </section>
+    <section id="about">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="section-title">About Me</h2>
+          <p>
+            I am interested in roles where I can contribute through design, prototyping, documentation,
+            and practical engineering problem solving. I enjoy taking a concept, turning it into a design,
+            and working through the challenges until it becomes something real and functional.
+          </p>
+          <ul class="about-list">
+            <li>B.S. in Mechanical Engineering, University of Texas at Arlington</li>
+            <li>Background in CAD, prototyping, and project-based engineering work</li>
+            <li>Interested in mechanical design, manufacturing, and entry-level engineering roles</li>
+          </ul>
+        </div>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>LinkedIn: your profile link</p>
-  </section>
+        <div class="card">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="tag-row">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">ANSYS Mechanical</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Excel</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">Word</span>
+            <span class="tag">Bambu Studio</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">C++</span>
+          </div>
+          <p>
+            My strongest experience is in CAD, project documentation, and prototyping. I also have exposure to analysis,
+            controls-related project work, and hardware integration through hands-on engineering projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="card resume-box">
+          <div>
+            <h2 class="section-title">Resume</h2>
+            <p class="section-subtitle" style="margin-bottom:0;">
+              Add your resume PDF to this repository and link it here so recruiters can download it directly.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="resume.pdf" target="_blank">View Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-list">
+            <div>Email: imanolgonzalez544@gmail.com</div>
+            <div>LinkedIn: <a href="#">Add your LinkedIn URL</a></div>
+            <div>GitHub: <a href="#">Add your GitHub profile URL</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Imanol Gonzalez. Built with GitHub Pages.</div>
+  </footer>
 </body>
 </html>
+
