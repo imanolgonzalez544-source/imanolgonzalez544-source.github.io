@@ -1,20 +1,93 @@
-<h2>Project Gallery</h2>
-<div class="gallery">
-  <img src="images/autogyro1.jpg" alt="CAD render">
-  <img src="images/autogyro2.jpg" alt="Autogyro prototype">
-  <img src="images/autogyro3.jpg" alt="Autogyro airflow simulation">
-</div>\
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autogyro Project | Imanol Gonzalez</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0b1020;
+      color: white;
+      line-height: 1.6;
+    }
 
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #c7d0e0;
+    }
+
+    a {
+      color: #6ea8fe;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html">← Back to Home</a>
+
+    <div class="section">
+      <h1>Senior Design Capstone: Autogyro</h1>
+      <p>
+        This project focused on developing a 3D-printed autogyro through CAD design,
+        weight reduction, and design iteration. I created detailed SolidWorks models
+        for the canopy, fuselage, and airfoil geometries, while helping optimize the
+        design for lighter weight and better manufacturability.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>My Role</h2>
+      <p>
+        I worked on CAD development, part optimization, and design communication.
+        A major contribution was helping achieve a 32% reduction in total component
+        weight through optimized print settings and material selection.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Project Gallery</h2>
+      <div class="gallery">
+        <img src="images/autogyro1.jpg" alt="Autogyro CAD render">
+        <img src="images/autogyro2.jpg" alt="Autogyro prototype">
+        <img src="images/autogyro3.jpg" alt="Autogyro airflow simulation">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
