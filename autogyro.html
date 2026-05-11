@@ -5,55 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autogyro Project | Imanol Gonzalez</title>
   <style>
+    :root {
+      --bg: #0b1020;
+      --text: #ffffff;
+      --muted: #c7d0e0;
+      --accent: #6ea8fe;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #0b1020;
-      color: white;
+      color: var(--text);
       line-height: 1.6;
     }
 
     .container {
       width: 90%;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 0;
+      padding: 40px 0 60px;
     }
 
     h1, h2 {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    h2 {
+      font-size: 2rem;
     }
 
     p {
-      color: #c7d0e0;
+      color: var(--muted);
+      max-width: 900px;
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .long-text p {
+      max-width: 980px;
     }
 
     a {
-      color: #6ea8fe;
+      color: var(--accent);
       text-decoration: none;
+      font-weight: 700;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 20px;
+    .section {
+      margin-bottom: 48px;
     }
 
+    .gallery,
+    .gallery-two,
+    .gallery-three {
+      margin-top: 18px;
+    }
+
+    .gallery-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-two img,
+    .gallery-three img,
     .gallery img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
+      height: 260px;
+      object-fit: contain;
+      border-radius: 16px;
       display: block;
+      background: #e9edf3;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 10px;
     }
 
-    .section {
-      margin-bottom: 40px;
+    .gallery-two.wide img {
+      height: 300px;
+    }
+
+    .gallery-three.final img {
+      height: 240px;
+    }
+
+    @media (max-width: 800px) {
+      .gallery-two,
+      .gallery-three {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-two img,
+      .gallery-three img,
+      .gallery img,
+      .gallery-two.wide img,
+      .gallery-three.final img {
+        height: 220px;
+      }
     }
   </style>
 </head>
@@ -75,75 +145,65 @@ workable foundation for the rest of the design process.
     <div class="section">
       <h2>1. Initial Design</h2>
       <p>
-        The project began with the first autogyro concept, which established the general
-        layout of the fuselage, canopy, and rotor-related components. At this stage, the
-        focus was on creating a workable starting point that could be manufactured and tested.
+The project began with the first autogyro concept, where the initial structural layout,
+canopy placement, and rotor-support geometry were established. At this stage, the focus
+was on developing a workable starting point that could be manufactured, tested, and used
+as the basis for later design improvements.
       </p>
-      <div class="gallery">
-  
-          <img src="images/autogyro4.png" alt="Initial CAD concept">
-          <img src="images/autogyro5.png" alt="Early prototype">
+      <div class="gallery-two">
+        <img src="images/autogyro4.png" alt="Initial CAD concept">
+        <img src="images/autogyro5.png" alt="Early prototype">
       </div>
     </div>
 
     <div class="section">
       <h2>2. Challenges and Areas for Improvement</h2>
       <p>
-After reviewing the first concept, it became clear that the design 
-needed further refinement in both structure and efficiency. Early 
-versions contained areas with excess material and incomplete integration, 
-so multiple concepts were explored to improve the canopy shape, reduce 
-weight, and create a more practical configuration for fabrication and assembly.
+After reviewing the first concept, it became clear that the design required further refinement
+in both structure and efficiency. Early concepts included areas with excess material and incomplete
+integration, so multiple canopy and body configurations were explored to reduce weight, improve
+manufacturability, and create a more practical overall design.
       </p>
-      <div class="gallery">
-             <img src="images/autogyro3.png" alt="Initial autogyro design">
+      <div class="gallery-three">
+        <img src="images/autogyro3.png" alt="Initial autogyro design">
         <img src="images/autogyro6.png" alt="Early design issues or first prototype">
-         <img src="images/autogyro7.png" alt="Early design issues or first prototype">
+        <img src="images/autogyro7.png" alt="Early design issues or first prototype">
       </div>
     </div>
 
     <div class="section">
       <h2>3. Design Iterations</h2>
       <p>
-Once the main improvement areas were identified, the design moved into a more 
-developed stage. These iterations focused on refining the canopy and fuselage 
-geometry, improving the overall shape of the autogyro, and integrating the rotor 
-system into the design more effectively. During this phase, all prototype parts 
-were first printed in PLA so the team could test fitment, evaluate the geometry, 
-and make design adjustments before moving to the final material. This allowed 
-the design to be revised efficiently while confirming that the layout and major 
-components worked together as intended.
+  Once the main improvement areas were identified, the design moved into a more developed stage.
+  These iterations focused on refining the canopy and fuselage geometry, improving the overall aircraft
+  profile, and integrating the rotor system more effectively into the design. During this phase, all
+  prototype parts were first printed in PLA so the layout, fitment, and geometry could be evaluated
+  before moving to the final material.
       </p>
-      <div class="gallery">
+      <div class="gallery-two wide">
         <img src="images/autogyro8.png" alt="Early design issues or first prototype">
-         <img src="images/autogyro9.png" alt="Early design issues or first prototype">
+        <img src="images/autogyro9.png" alt="Early design issues or first prototype">
       </div>
     </div>
 
-    <div class="section">
+    <div class="section long-text">
       <h2>4. Final Outcome</h2>
       <p>
-The final design represents a much more complete and optimized version of the 
-autogyro. After the design was validated through PLA prototypes, the final version 
-was printed in ASA Aero to reduce overall weight. Although the canopy originally 
-included lightening holes, those features had to be removed because they made the 
-ASA Aero print difficult and unreliable. Even with the holes removed, weight was 
-still reduced through the final material choice.
-
-Several additional design changes were made to improve performance and functionality. 
-The overall body length was increased to move the empennage out of a dead zone in the 
-incoming airflow and improve aerodynamic effectiveness. The rotor configuration was 
-updated from two blades to three blades because, in this design, the three-blade setup 
-provided better overall performance and more consistent behavior. A more powerful motor 
-was also introduced to meet the higher power demands of the system. In addition, the 
-landing gear was redesigned because the previous setup had difficulty breaking traction 
-in surf-like ground conditions. These final updates created a more refined and practical 
-configuration that better balanced manufacturability, weight reduction, and performance 
-goals.
+  The final design represents a more complete and optimized version of the autogyro. After the design
+  was validated through PLA prototypes, the final version was printed in ASA Aero to reduce overall weight.
+  Although the canopy originally included lightening holes, those features had to be removed because they
+  made ASA Aero printing difficult and unreliable. Even with the holes removed, weight was still reduced
+  through the material choice. 
       </p>
-      <div class="gallery">
+      <p>
+  Additional design changes were also made to improve performance and functionality,
+  including increasing the overall body length to move the empennage out of a dead zone in the incoming airflow,
+  changing from a two-blade to a three-blade rotor configuration, selecting a more powerful motor, and redesigning
+  the landing gear to perform better in surf-like ground conditions.
+      </p>
+      <div class="gallery-three final">
         <img src="images/autogyro.jpg" alt="Early design issues or first prototype">
-         <img src="images/autogyro10.png" alt="Early design issues or first prototype">
+        <img src="images/autogyro10.png" alt="Early design issues or first prototype">
         <img src="images/autogyro1.png" alt="Early design issues or first prototype">
       </div>
     </div>
@@ -151,10 +211,10 @@ goals.
     <div class="section">
       <h2>5. Key Takeaways</h2>
       <p>
-        This project strengthened my experience in SolidWorks, design iteration, and technical
-        communication. It also showed me the importance of balancing performance goals with
-        practical manufacturing decisions throughout the design process.
-      </p>
+  This project strengthened my experience in SolidWorks, design iteration, and technical communication.
+  It also reinforced the importance of balancing aerodynamic performance, manufacturability, material choice,
+  and system-level design decisions throughout a full engineering project.
     </div>
   </div>
 </body>
+</html>
