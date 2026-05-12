@@ -86,28 +86,33 @@
       padding: 10px;
     }
 
-    .video-wrap {
-      margin-top: 18px;
-      background: #e9edf3;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: var(--shadow);
-    }
+    .video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
 
-    .video-wrap video {
-      width: 100%;
-      max-height: 520px;
-      border-radius: 12px;
-      display: block;
-      background: #000;
-    }
+.video-wrap {
+  background: #e9edf3;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: var(--shadow);
+}
 
-    @media (max-width: 900px) {
-      .gallery-three {
-        grid-template-columns: 1fr;
-      }
+.video-wrap video {
+  width: 100%;
+  max-height: 420px;
+  border-radius: 12px;
+  display: block;
+  background: #000;
+}
 
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
       .gallery-three img {
         height: 220px;
       }
@@ -146,23 +151,30 @@
       </div>
     </div>
 
-    <div class="section">
-      <h2>2. Demonstration Video</h2>
-      <p>
-        The video below shows the final platform in operation. In this demonstration, the system
-        responds to the ball’s movement by adjusting the platform angle in real time, allowing the
-        ball to be stabilized through closed-loop control. This final demonstration reflects the
-        successful integration of the mechanical design, electronics, and control strategy.
-      </p>
+<div class="section">
+  <h2>2. Final Performance</h2>
+  <p>
+    The videos below show the completed balancing platform in operation. In these demonstrations,
+    the system responds to the ball’s movement by adjusting the platform angle in real time,
+    showing the final performance of the integrated mechanical design, electronics, and control logic.
+  </p>
 
-      <div class="video-wrap">
-        <video controls>
-          <source src="images/video3.mp4" type="video/mp4">
-          <source src="images/video4.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+  <div class="video-grid">
+    <div class="video-wrap">
+      <video controls>
+        <source src="images/video3.mp4" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
     </div>
+
+    <div class="video-wrap">
+      <video controls>
+        <source src="images/video4.mp4" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
 
     <div class="section">
       <h2>3. Key Takeaways</h2>
